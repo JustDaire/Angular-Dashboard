@@ -1,3 +1,5 @@
+@import 'https://unpkg.com/@webpixels/css@1.1.5/dist/index.css'
+
 ::ng-deep .mat-table
   max-height: 35rem
   overflow: scroll
@@ -7,3 +9,20 @@
 
 .dangerous .mat-cell
   color: red
+
+
+.card-body
+  flex: 1 1 auto
+  padding: 1.5rem 1.5rem
+  color: #525f7f
+
+.row
+  margin-top: calc(var(--x-gutter-y) * -1)
+  margin-right: calc(var(--x-gutter-x) * -0.5)
+  margin-left: calc(var(--x-gutter-x) * -0.5)
+
+.row > *
+  margin-top: var(--x-gutter-y)
+
+.rounded-circle
+  border-radius: 50% !important
