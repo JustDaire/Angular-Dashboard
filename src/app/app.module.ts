@@ -64,7 +64,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatListModule,
     RouterModule.forRoot([
       // {path: 'autocomplete', component: AutocompleteComponent},
-      {path: '', component: HomeComponent},
+      {path: 'home', component: HomeComponent},
       {path: 'dashboard', component: DashboardComponent},
       {path: 'profile', component: UserProfileComponent},
       {path: 'table', component: TableComponent},
