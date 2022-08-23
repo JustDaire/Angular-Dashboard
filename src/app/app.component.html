@@ -1,0 +1,24 @@
+<app-toolbar (menuToggled)="toggle()"></app-toolbar>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer [(opened)]="opened" class="example-sidenav" mode="side">
+    <mat-sidenav-container class="example-sidenav-container" autosize>
+      <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+        <mat-nav-list class="dashboard">
+          <a mat-list-item (click)="toggleActive($event)" *ngFor="let item of menuItems" routerLink="{{item.link}}">
+            <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+            <p matLine *ngIf="isExpanded">{{item.name}}</p>
+          </a>
+          <mat-divider></mat-divider>
+          <a mat-list-item (click)="toggleActive($event)" routerLinkActive="active">
+            <mat-icon mat-list-icon>help</mat-icon>
+            <p matLine *ngIf="isExpanded">Help</p>
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </mat-drawer>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

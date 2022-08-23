@@ -1,1 +1,50 @@
-<p>table works!</p>
+<h4>Table</h4>
+<!-- Mat Table -->
+<div class="mat-elevation-z8">
+  <div *ngIf="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <mat-table #table [dataSource]="dataSource" *ngIf="!loading">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Asteroid Name</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="size">
+      <mat-header-cell *matHeaderCellDef> Size</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        {{item.estimated_diameter.kilometers.estimated_diameter_min}}
+        - {{item.estimated_diameter.kilometers.estimated_diameter_max}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ed_min">
+      <mat-header-cell *matHeaderCellDef> Estimated Diameter (Min)</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{item.estimated_diameter.kilometers.estimated_diameter_min}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ed_max">
+      <mat-header-cell *matHeaderCellDef> Estimated Diameter (Max)</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{item.estimated_diameter.kilometers.estimated_diameter_max}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="severity">
+      <mat-header-cell *matHeaderCellDef> Risk</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <span *ngIf="item.is_potentially_hazardous_asteroid">Dangerous</span>
+        <span *ngIf="!item.is_potentially_hazardous_asteroid">Safe</span>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="tableColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumns;"
+             (click)="selectedRow(row)" matRipple
+             [ngClass]="{
+             'safe': !row.is_potentially_hazardous_asteroid,
+             'dangerous': row.is_potentially_hazardous_asteroid
+             }"
+    ></mat-row>
+    <!--    (click)="$event ? selection.toggle(row): null"-->
+    <!--    matRipple></mat-row>-->
+    <!--    [class.selected-row]="selection.isSelected(row)"-->
+  </mat-table>
+  <mat-paginator
+    [length]="resultsLength" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePageEvent($event)" showFirstLastButtons></mat-paginator>
+</div>
