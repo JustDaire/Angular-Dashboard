@@ -20,6 +20,10 @@ export class CoreService {
     return this.http.get(`https://jsonplaceholder.typicode.com/users?${optionalParams}`);
   }
 
+  getUserPhoto() {
+    return this.http.get(`https://avatars.dicebear.com/api/human/john.svg`);
+  }
+
   getUsersAlt(optionalParams: string) {
     return this.http.get(`https://reqres.in/api/users?page=2${optionalParams}`);
   }

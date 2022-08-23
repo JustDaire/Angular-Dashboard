@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatTableDataSource} from "@angular/material/table";
+import {CoreService} from "../../core/services/core.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  // profilePhoto = null;
+  profilePhoto = 'https://avatars.dicebear.com/api/human/john.svg';
+
+  constructor(private coreS: CoreService) { }
 
   ngOnInit(): void {
+    // this.getProfilePhoto();
+  }
+
+  getProfilePhoto() {
+
+    this.coreS.getUserPhoto().subscribe(
+      (data: any) => {
+        this.profilePhoto = data;
+      },
+      err => {
+        console.error('Received error:', err);
+      },
+      () => {
+        console.info('Process complete, closing request!');
+      }
+    );
+
   }
 
 }
