@@ -8,7 +8,7 @@
 
 <div class="col-12" *ngIf="!loading">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <mat-card>
         <mat-card-title>Asteroid count</mat-card-title>
         <canvas
@@ -17,6 +17,18 @@
           [type]="'pie'"
           [options]="pieChartOptions"
           [plugins]="pieChartPlugins">
+        </canvas>
+      </mat-card>
+    </div>
+    <div class="col-9">
+      <mat-card>
+        <mat-card-title>Bar Chart</mat-card-title>
+        <canvas
+          baseChart
+          [type]="'bar'"
+          [data]="multiChartData"
+          [labels]="multiChart.labels"
+          [legend]="true">
         </canvas>
       </mat-card>
     </div>

@@ -24,9 +24,51 @@ export class DashboardComponent implements OnInit {
   };
 
   public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: false,
+    responsive: true,
   };
   public pieChartPlugins = [];
+
+  multiChartData: ChartData<'bar', number[], string | string[]> = {
+    labels: ["FirstPlaceholder", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "LastPlaceholder"],
+    datasets: [
+      { data: [0, 30, 20, 40, 35, 45, 33, 0, 0], label: "Bar 1" },
+      { data: [0, 50, 60, 55, 59, 30, 40, 0, 0], label: "Bar 2" },
+      { data: [45, 45, 45, 45, 45, 45, 45, 45, 45], label: "Line" }
+    ]
+  };
+
+  public multiChartOptions: ChartOptions<'bar'> = {
+    responsive: false,
+  };
+
+
+  public multiChart = {
+    "datasets": [
+      { "data": [0, 30, 20, 40, 35, 45, 33, 0, 0], "label": "Bar 1" },
+      { "data": [0, 50, 60, 55, 59, 30, 40, 0, 0], "label": "Bar 2" },
+      { "data": [45, 45, 45, 45, 45, 45, 45, 45, 45], "label": "Line", "type": "line" }
+    ],
+    "labels": ["FirstPlaceholder", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "LastPlaceholder"],
+    options: {
+      "legend": {
+        "text": "You awesome chart with average line",
+        "display": true,
+      },
+      "scales": {
+        "yAxes": [{
+          "ticks": {
+            "beginAtZero": true
+          }
+        }],
+        "xAxes": [{
+          "ticks": {
+            "min": "Monday",
+            "max": "Sunday",
+          }
+        }],
+      }
+    }
+  };
 
   constructor(
     private coreS: CoreService
