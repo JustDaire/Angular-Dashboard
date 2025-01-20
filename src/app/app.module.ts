@@ -38,6 +38,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { SidebarItemsComponent } from "./components/sidebar-items/sidebar-items.component";
 
 @NgModule({
   declarations: [
@@ -63,17 +64,17 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatIconModule,
     MatListModule,
     RouterModule.forRoot([
-      // {path: 'autocomplete', component: AutocompleteComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'dashboard', component: DashboardComponent},
-      {path: 'profile', component: UserProfileComponent},
-      {path: 'table', component: TableComponent},
-      // {path: 'd3', component: D3Component},
-      // {path: 'alerts', component: AlertsComponent},
-      // {path: 'table', component: TableComponent},
-      // {path: 'testing', component: TestingComponent},
-      // {path: 'login', component: LoginComponent},
-      // {path: 'logout', component: LoginComponent},
+        // {path: 'autocomplete', component: AutocompleteComponent},
+        { path: 'home', component: HomeComponent },
+        { path: 'dashboard', component: DashboardComponent },
+        { path: 'profile', component: UserProfileComponent },
+        { path: 'table', component: TableComponent },
+        // {path: 'd3', component: D3Component},
+        // {path: 'alerts', component: AlertsComponent},
+        // {path: 'table', component: TableComponent},
+        // {path: 'testing', component: TestingComponent},
+        // {path: 'login', component: LoginComponent},
+        // {path: 'logout', component: LoginComponent},
     ]),
     MatProgressSpinnerModule,
     MatPaginatorModule,
@@ -81,7 +82,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatProgressBarModule,
     MatCardModule,
     MatGridListModule,
-  ],
+    SidebarItemsComponent
+],
   exports: [
     A11yModule,
     CdkAccordionModule,

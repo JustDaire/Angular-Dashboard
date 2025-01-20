@@ -1,0 +1,22 @@
+<mat-nav-list role="navigation">
+  @for (item of menuItems; track item) {
+  <mat-list-item routerLink="{{item.link}}">
+    <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+    <p matListItemLine class="nav-item" *ngIf="isExpanded">{{ item.name }}</p>
+    <!-- <span matListItemLine *ngIf="isExpanded">{{item.name}}</span> -->
+  </mat-list-item>
+  }
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon matListItemIcon>help</mat-icon>
+    <p matListItemLine class="nav-item" *ngIf="isExpanded">Help</p>
+    <!-- <span matListItemLine *ngIf="isExpanded">Help</span> -->
+  </mat-list-item>
+</mat-nav-list>
+<mat-nav-list role="navigation">
+  <mat-list-item>
+    <mat-icon matListItemIcon>settings</mat-icon>
+    <p matListItemLine class="nav-item" *ngIf="isExpanded">Settings</p>
+    <!-- <span matListItemLine *ngIf="isExpanded">Settings</span> -->
+  </mat-list-item>
+</mat-nav-list>

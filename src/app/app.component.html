@@ -3,17 +3,10 @@
   <mat-drawer #drawer [(opened)]="opened" class="example-sidenav" mode="side">
     <mat-sidenav-container class="example-sidenav-container" autosize>
       <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
-        <mat-nav-list class="dashboard" [routerLinkActive]="['class1']">
-          <a mat-list-item (click)="toggleActive($event)" *ngFor="let item of menuItems" routerLink="{{item.link}}" routerLinkActive="active">
-            <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
-            <p matLine *ngIf="isExpanded">{{item.name}}</p>
-          </a>
-          <mat-divider></mat-divider>
-          <a mat-list-item (click)="toggleActive($event)">
-            <mat-icon mat-list-icon>help</mat-icon>
-            <p matLine *ngIf="isExpanded">Help</p>
-          </a>
-        </mat-nav-list>
+        <app-sidebar-items
+        [menuItems]="menuItems"
+        [isExpanded]="isExpanded"
+        ></app-sidebar-items>
       </mat-sidenav>
     </mat-sidenav-container>
   </mat-drawer>
